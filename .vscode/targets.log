@@ -1,0 +1,423 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+dep/world.d:1: *** missing separator.  Stop.
+
+# GNU Make 4.3
+# Built for x86_64-pc-msys
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Sun May 15 01:41:27 2022
+
+# Variables
+
+ 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# makefile (from 'Makefile', line 3)
+debugFlags := -g
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\nikit.DESKTOP-2GRDQ4H
+# environment
+LOCALAPPDATA = C:\Users\nikit.DESKTOP-2GRDQ4H\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-d5c186e9-e0b3-4a3c-a922-57beec10d472-sock
+# makefile (from 'Makefile', line 23)
+VPATH := src:obj
+# environment
+VSCODE_CWD = C:\Users\nikit.DESKTOP-2GRDQ4H\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_568_QKENKECWLTINZURD
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\nikit.DESKTOP-2GRDQ4H\AppData\Roaming\Code\CachedData\da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = /c/Users/NIKIT~1.DES/AppData/Local/Temp
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\nikit.DESKTOP-2GRDQ4H\OneDrive
+# makefile
+CURDIR := /c/Users/nikit.DESKTOP-2GRDQ4H/Documents/Projects/Frog on a lilypad
+# makefile (from 'Makefile', line 4)
+releaseFlags := -O2
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+UOIPME_REG_PATH = C:\Program Files\Intel Corporation\USB over IP
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+!C: = c:\Users\nikit.DESKTOP-2GRDQ4H\Documents\Projects\Frog on a lilypad
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'dep/world.d', line 1)
+MAKEFILE_LIST := Makefile dep/entity.d dep/main.d dep/world.d
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 568
+# makefile (from 'Makefile', line 12)
+sources := src/entity.cpp src/main.cpp src/world.cpp
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from 'Makefile', line 10)
+depDir := dep
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"b0850cb5d8440d61864b574b572701ac.ru","_translationsConfigFile":"C:\\Users\\nikit.DESKTOP-2GRDQ4H\\AppData\\Roaming\\Code\\clp\\b0850cb5d8440d61864b574b572701ac.ru\\tcf.json","_cacheRoot":"C:\\Users\\nikit.DESKTOP-2GRDQ4H\\AppData\\Roaming\\Code\\clp\\b0850cb5d8440d61864b574b572701ac.ru","_resolvedLanguagePackCoreLocation":"C:\\Users\\nikit.DESKTOP-2GRDQ4H\\AppData\\Roaming\\Code\\clp\\b0850cb5d8440d61864b574b572701ac.ru\\da15b6fd3ef856477bf6f4fb29ba1b7af717770d","_corruptedFile":"C:\\Users\\nikit.DESKTOP-2GRDQ4H\\AppData\\Roaming\\Code\\clp\\b0850cb5d8440d61864b574b572701ac.ru\\corrupted.info","_languagePackSupport":true}
+# environment
+ONEDRIVECONSUMER = C:\Users\nikit.DESKTOP-2GRDQ4H\OneDrive
+# default
+MAKE_HOST := x86_64-pc-msys
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := /bin/sh
+# environment
+HOMEPATH = \Users\nikit.DESKTOP-2GRDQ4H
+# default
+MAKECMDGOALS := all
+# makefile (from 'Makefile', line 15)
+objects := obj/entity.o obj/main.o obj/world.o
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/Python310/Scripts:/c/Python310:/c/Python38/Scripts:/c/Python38:/c/Program Files (x86)/Intel/iCLS Client:/c/Program Files/Intel/iCLS Client:/c/Windows/system32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/Program Files/Intel/WiFi/bin:/c/Program Files/Common Files/Intel/WirelessCommon:/c/WINDOWS/System32/OpenSSH:/c/Program Files/dotnet:/c/ProgramData/chocolatey/bin:/c/Program Files (x86)/dotnet:/c/Program Files/CMake/bin:C:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/Program Files/nodejs:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/Programs/Python/Python39/Scripts:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/Programs/Python/Python39:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/Microsoft/WindowsApps:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/nikit.DESKTOP-2GRDQ4H/.dotnet/tools:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/Microsoft/WindowsApps:/mingw64/bin:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Roaming/npm:/c/Users/nikit.DESKTOP-2GRDQ4H/AppData/Local/GitHubDesktop/bin:/usr/bin
+# makefile (from 'Makefile', line 18)
+compFlags := -Wall -O2
+# environment
+COMPUTERNAME = DESKTOP-2GRDQ4H
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# makefile (from 'Makefile', line 7)
+srcDir := src
+# makefile (from 'Makefile', line 13)
+headers := 
+# environment
+LOGONSERVER = \\DESKTOP-2GRDQ4H
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = nikit
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# makefile (from 'Makefile', line 2)
+ProgramName := UnluckyFrog
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 8)
+objDir := obj
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from 'Makefile', line 5)
+buildMode := RELEASE
+# environment
+USERDOMAIN = DESKTOP-2GRDQ4H
+# environment
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# environment
+__COMPAT_LAYER = DetectorsAppHealth
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from 'Makefile', line 11)
+includeDir := libs/include
+# makefile (from 'Makefile', line 9)
+binDir := bin
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-2GRDQ4H
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+PUBLIC = C:\Users\Public
+# environment
+APPDATA = C:\Users\nikit.DESKTOP-2GRDQ4H\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/nikit
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = /c/Users/NIKIT~1.DES/AppData/Local/Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\5729441591dd16375f6e3cc947e79fad-1.67.1-main-sock
+# environment
+TERM = xterm-256color
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+PROCESSOR_REVISION = 3d04
+# makefile (from 'Makefile', line 1)
+CC := g++
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
+# variable set hash-table stats:
+# Load=115/1024=11%, Rehash=0, Collisions=13/147=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 3422940438, inode 47006321110681995): 7 files, no impossibilities.
+# . (device 3422940438, inode 62205969853167634): 9 files, no impossibilities.
+
+# 16 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+cleanAll:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@echo Cleaning ALL...
+	
+	rmdir $(objDir) $(depDir)
+	-cd $(binDir) && rm $(ProgramName).exe
+	
+	@echo Cleaning ALL completed!
+
+sayBuilding:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	@echo Building $(ProgramName) in $(buildMode) mode...
+	@echo ...
+
+obj/main.o: src/main.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	@echo Cleaning...
+	
+	-cd $(objDir) && rm $(notdir $(wildcard $(objDir)/*.o))
+	-cd $(depDir) && rm $(notdir $(wildcard $(depDir)/*.d))
+	-cd $(binDir) && rm $(ProgramName).exe
+	
+	@echo Cleaning completed!
+
+src/entity.hpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/world.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/entity.o: src/entity.cpp src/entity.hpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+dep/main.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+dep/entity.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sayCompleted:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	@echo Building completed!
+	@echo ...
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: sayBuilding checkFolders build sayCompleted run
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 48):
+	@echo Running...
+	$(binDir)/$(ProgramName).exe
+	@echo App closed
+	@echo ...
+
+build: obj/entity.o obj/main.o obj/world.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 43):
+	@echo Linking $^
+	$(CC) -o $(binDir)/$(ProgramName) $(objects) -L libs/src -l sfml-graphics -l sfml-window -l sfml-system -l libbox2d
+	@echo ...
+
+# Not a target:
+src/entity.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+dep/world.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+checkFolders:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 36):
+	@echo Checking folders
+	-mkdir $(objDir)
+	-mkdir $(binDir)
+	-mkdir $(depDir)
+	@echo ...
+
+# files hash-table stats:
+# Load=20/1024=2%, Rehash=0, Collisions=0/44=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 34 / storage = 308 B / avg = 9 B
+# current buf: size = 8162 B / used = 308 B / count = 34 / avg = 9 B
+
+# strcache performance: lookups = 64 / hit rate = 46%
+# hash-table stats:
+# Load=34/8192=0%, Rehash=0, Collisions=0/64=0%
+# Finished Make data base on Sun May 15 01:41:27 2022
+
+ 

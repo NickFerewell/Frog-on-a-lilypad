@@ -1,0 +1,28 @@
+make.exe --dry-run --keep-going --print-directory
+make: Entering directory '/c/Users/nikit.DESKTOP-2GRDQ4H/Documents/Projects/Frog on a lilypad'
+echo Building UnluckyFrog in RELEASE mode...
+echo ...
+ 
+echo Checking folders
+mkdir obj
+mkdir bin
+mkdir dep
+echo ...
+ 
+echo Compiling obj/world.o from src/world.cpp
+g++ -c src/world.cpp -o obj/world.o -I libs/include -Wall -O2
+g++ -MM -MT obj/world.o -MP -Wall -O2 src/world.cpp > dep/world.d
+echo ...
+ 
+echo Linking obj/entity.o obj/main.o obj/world.o
+g++ -o bin/UnluckyFrog obj/entity.o obj/main.o obj/world.o -L libs/src -l sfml-graphics -l sfml-window -l sfml-system -l libbox2d
+echo ...
+echo Building completed!
+echo ...
+ 
+echo Running...
+bin/UnluckyFrog.exe
+echo App closed
+echo ...
+make: Leaving directory '/c/Users/nikit.DESKTOP-2GRDQ4H/Documents/Projects/Frog on a lilypad'
+ 
