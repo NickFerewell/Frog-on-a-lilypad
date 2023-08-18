@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 
 namespace utils
@@ -32,3 +34,20 @@ namespace utils
 
     float min (float a, float b);
 } // namespace utils
+
+
+#include <memory>
+
+struct AllocationMetrics
+{
+    uint32_t totalAllocated = 0;
+    uint32_t totalFreed = 0;
+
+    uint32_t currentUsage(){
+        return totalAllocated - totalFreed;
+    }
+};
+
+static AllocationMetrics allocationMetrics;
+
+void printMemoryUsage();

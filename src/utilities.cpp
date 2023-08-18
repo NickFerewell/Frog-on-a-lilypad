@@ -97,3 +97,25 @@ const T& utils::min (const T& a, const T& b) {
 float utils::min (float a, float b) {
     return !(b<a)?a:b;
 }
+
+
+
+
+
+
+
+void* operator new(size_t size){
+    // std::cout << "Allocated " << size << "bytes\n";
+    allocationMetrics.totalAllocated += size;
+    return malloc(size);
+}
+
+void operator delete(void* memory, size_t size){
+    // std::cout << "Freeing" << size << "bytes\n";
+    allocationMetrics.totalFreed += size;
+    return free(memory);
+}
+
+void printMemoryUsage(){
+    std::cout << "Memory usage: " << allocationMetrics.currentUsage() << " bytes\n";
+}

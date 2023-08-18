@@ -1,3 +1,5 @@
+#pragma once
+
 #include "PIDController.hpp"
 #include "entity.hpp"
 
@@ -7,14 +9,9 @@ private:
     RController lookAtMouseController = RController(20.0f);
     float timeFromLastSwim = 0;
     float timeForSwim = 500;
+    float LilypadCounter = 0;
 public:
     sf::CircleShape sprite;
-
-    enum FrogState{
-        inWater, onLilypad, inAir
-    };
-
-    FrogState currentState;
 
     Frog(float x, float y, float size);
     ~Frog();

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "entity.hpp"
+#include "collisionManager.hpp"
 
 class World
 {
@@ -9,6 +10,8 @@ private:
     Entity* entities_[World::MAX_ENTITIES];
     Entity entityObjects_[World::MAX_ENTITIES];
     int numEntities_;
+
+    CollisionManager CollisionManager_;
 public:
     int64_t currentTick = 0;
 

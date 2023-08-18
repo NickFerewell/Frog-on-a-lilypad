@@ -27,7 +27,7 @@ Frog::Frog(float x, float y, float size)
     sprite.setOutlineColor(sf::Color(70, 130, 70));
     sprite.setPosition(position);
 
-    currentState = inWater;
+    currentState = Entity::inWater;
 }
 
 Frog::~Frog()
@@ -84,7 +84,7 @@ bool Frog::beforeCollision(Entity* withEntity, int deltaTime){
     {
     case inWater:
         if (withEntity->currentCollisionCategory == Entity::Lilypads && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            currentState = Frog::onLilypad;
+            currentState = Entity::onLilypad;
 
             collisionMask = collisionMask & ~Entity::Lilypads;
             drag = 0.01f;
@@ -93,7 +93,7 @@ bool Frog::beforeCollision(Entity* withEntity, int deltaTime){
     case onLilypad:
         velocity += withEntity->acceleration;
         if(withEntity->radius - utils::getMagnitude(position - withEntity->position) < radius/4 && (sf::Mouse::isButtonPressed(sf::Mouse::Left) == false)){
-            currentState = Frog::inWater;
+            currentState = Entity::inWater;
 
             collisionMask = collisionMask | Entity::Lilypads;
             drag = 0.9f;

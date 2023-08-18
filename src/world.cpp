@@ -7,6 +7,7 @@
 #include "rock.hpp"
 #include "reeds.hpp"
 #include "frog.hpp"
+#include "utilities.hpp"
 
 
 World::World(): numEntities_(0)
@@ -47,12 +48,14 @@ void World::update(int deltaTime){
         for(int j = i + 1; j < numEntities_; j++){
             bool isColliding = entities_[i]->colliding(entities_[j]);
             if(isColliding == true){
-                std::cout << "Boom!"
+                // std::cout << "Boom!"
                 /*<< entities_[i]->collisionMask << " " << entities_[j]->currentCollisionCategory << " " << entities_[j]->collisionMask << " " << entities_[i]->currentCollisionCategory << " " << Entity::None << " " << isCollisionEnabled << "\n"
                 << (entities_[i]->collisionMask & entities_[j]->currentCollisionCategory) << "\n"
                 << (entities_[j]->collisionMask & entities_[i]->currentCollisionCategory) << "\n"
                 << (0b0001 & 0b0010) << "\n" */
-                << std::endl;
+                // << std::endl;
+
+                CollisionManager_.addToStart(new Collision(entities_[i], entities_[j]));
 
                 entities_[i]->beforeCollision(entities_[j], deltaTime);
                 entities_[j]->beforeCollision(entities_[i], deltaTime);
@@ -65,6 +68,9 @@ void World::update(int deltaTime){
                 }
                 
                 entities_[i]->resolveCollision(entities_[j]);
+
+                entities_[i]->afterCollision(entities_[j], deltaTime);
+                entities_[j]->afterCollision(entities_[i], deltaTime);
             }
         }
     }
@@ -72,6 +78,9 @@ void World::update(int deltaTime){
     for(int i = 0; i < numEntities_; i++){
         entities_[i]->postUpdate(deltaTime);
     }
+
+    printMemoryUsage();
+    CollisionManager_.clearCollisions();
 }
 
 void World::draw(sf::RenderTarget& renderTarget){

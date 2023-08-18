@@ -63,9 +63,10 @@ bool Lilypad::beforeCollision(Entity* withEntity, int deltaTime){
 
     // sf::Vector2f relativeVelocity = withEntity->velocity - velocity;
     // withEntity->applyForce(-relativeVelocity * 14.0f);
-
-    withEntity->position += velocity + acceleration * (deltaTime * deltaTime / 2.0f);
-
+    if(withEntity->currentState == onLilypad){
+        withEntity->position += velocity + acceleration * (deltaTime * deltaTime / 2.0f);
+        // withEntity->position = position;
+    }
     // withEntity->velocity += acceleration;
 
     // withEntity->position += acceleration * withEntity->mass * (deltaTime * deltaTime / 2.0f);

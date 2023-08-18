@@ -26,7 +26,11 @@ public:
     CollisionCategory currentCollisionCategory = All;
     collisionSpecifier collisionMask = All;
 
+    enum EntityState{
+        inWater, onLilypad, inAir
+    };
 
+    EntityState currentState;
 
     Entity(/* args */);
     ~Entity();
