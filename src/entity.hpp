@@ -1,12 +1,22 @@
 #pragma once
 
+#include <vector>
+#include <list>
+
 #include <SFML/Graphics.hpp>
 
-typedef short collisionSpecifier;
+#include "collision.fwd.hpp"
+#include "constants.hpp"
+#include "world.fwd.hpp"
+
+typedef uint16_t CollisionSpecifier;
 
 class Entity
 {
 public:
+    entityID ID;
+    World* world_;
+
     sf::Vector2f position;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
@@ -19,18 +29,22 @@ public:
     float drag = 0.9f;
     float opacity = 1.0f; //Nontransparency, opacity, overlappance
 
-    enum CollisionCategory : collisionSpecifier{
-        All = -1, None = 0x0000, Frogs = 0x0001, Lilypads = 0x0002, Other = 0x0004, Flies = 0x0008
+    enum CollisionCategory : CollisionSpecifier{
+        All = 0xFFFF, None = 0x0000, Frogs = 0x0001, Lilypads = 0x0002, Other = 0x0004, Flies = 0x0008
     };
 
     CollisionCategory currentCollisionCategory = All;
-    collisionSpecifier collisionMask = All;
+    CollisionSpecifier collisionMask = All;
 
     enum EntityState{
         inWater, onLilypad, inAir
     };
 
     EntityState currentState;
+    
+    
+    //Нигде в других местах не хранить ни указатели на коллизии, ни их объекты. Кроме списка коллизий в CollisionManager
+    std::list<Collision*> collisionList;
 
     Entity(/* args */);
     ~Entity();
@@ -46,5 +60,5 @@ public:
 
     void applyForce(sf::Vector2f force);
 
-    static bool doCollisionEnabled(collisionSpecifier mask1, CollisionCategory category1, collisionSpecifier mask2, CollisionCategory category2);
+    static bool doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory category1, CollisionSpecifier mask2, CollisionCategory category2);
 };

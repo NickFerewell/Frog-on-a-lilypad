@@ -78,6 +78,10 @@ bool Entity::beforeCollision(Entity* withEntity, int deltaTime){
 }
 void Entity::afterCollision(Entity* withEntity, int deltaTime){}
 
-bool Entity::doCollisionEnabled(collisionSpecifier mask1, CollisionCategory category1, collisionSpecifier mask2, CollisionCategory category2){
-    return (mask1 & category1) & (mask2 & category2) != Entity::None;
+bool Entity::doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory category1, CollisionSpecifier mask2, CollisionCategory category2){
+    std::cout << "Mask1: " << mask1 << ", Cat1: " << category1 << ", Mask2: " << mask2 << ", Cat2: " << category2 << std::endl;
+    // return (mask1 & category1) & (mask2 & category2) != Entity::None;
+
+    
+    return (mask1 & category2) != Entity::None && (mask2 & category1) != Entity::None;
 }

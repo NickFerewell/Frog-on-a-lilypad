@@ -7,6 +7,7 @@
 #include "rock.hpp"
 #include "reeds.hpp"
 #include "frog.hpp"
+#include "fly.hpp"
 #include "utilities.hpp"
 
 
@@ -34,7 +35,11 @@ void World::setup(){
 
     Entity* Reeds1 = addEntity(new Reeds(470, 290, 50));
 
-    /*Entity* Frog1 =*/ addEntity(new Frog(370, 370, 30));
+    Entity* Frog1 = addEntity(new Frog(370, 370, 30));
+    playerEntity = Frog1;
+
+    addEntity(new Fly(620, 620, 10));
+    addEntity(new Fly(630, 630, 10));
 }
 
 void World::update(int deltaTime){
@@ -55,24 +60,31 @@ void World::update(int deltaTime){
                 << (0b0001 & 0b0010) << "\n" */
                 // << std::endl;
 
-                CollisionManager_.addToStart(new Collision(entities_[i], entities_[j]));
-
-                entities_[i]->beforeCollision(entities_[j], deltaTime);
-                entities_[j]->beforeCollision(entities_[i], deltaTime);
-                
-                bool isCollisionEnabled = Entity::doCollisionEnabled(entities_[i]->collisionMask, entities_[j]->currentCollisionCategory, entities_[j]->collisionMask, entities_[i]->currentCollisionCategory);
-            
-                if (isCollisionEnabled == false)
-                {
-                    continue;
-                }
-                
-                entities_[i]->resolveCollision(entities_[j]);
-
-                entities_[i]->afterCollision(entities_[j], deltaTime);
-                entities_[j]->afterCollision(entities_[i], deltaTime);
+                Collision* thisCollision = new Collision(entities_[i], entities_[j]);
+                CollisionManager_.addCollision(thisCollision);
             }
         }
+    }
+
+    for (Collision* currentPair = CollisionManager_.collisionList; currentPair != nullptr; currentPair = currentPair->next)
+    {
+        Entity* entityA = currentPair->entity1;
+        Entity* entityB = currentPair->entity2;
+    
+        entityA->beforeCollision(entityB, deltaTime);
+        entityB->beforeCollision(entityA, deltaTime);
+        
+        bool isCollisionEnabled = Entity::doCollisionEnabled(entityA->collisionMask, entityA->currentCollisionCategory, entityB->collisionMask, entityB->currentCollisionCategory);
+        std::cout << isCollisionEnabled << std::endl;
+        if (isCollisionEnabled == false)
+        {
+            continue;
+        }
+        
+        entityA->resolveCollision(entityB);
+
+        entityA->afterCollision(entityB, deltaTime);
+        entityB->afterCollision(entityA, deltaTime);
     }
 
     for(int i = 0; i < numEntities_; i++){
@@ -91,8 +103,34 @@ void World::draw(sf::RenderTarget& renderTarget){
 
 Entity* World::addEntity(Entity* entity){
     entities_[numEntities_] = entity;
-    entityObjects_[numEntities_] = *entity;
+    // entityObjects_[numEntities_] = *entity;
+    entity->ID = numEntities_;
+    entity->world_ = this;
+
     numEntities_ += 1;
 
     return entity;
+}
+
+void World::deleteEntity(Entity* entity){
+    // for (Collision* currentCollision: entity->collisionList)
+    // {
+    //     CollisionManager_.deleteCollision(currentCollision);
+    // }
+    
+    std::list<Collision*>::reverse_iterator it;
+    for (it = entity->collisionList.rbegin(); it != entity->collisionList.rend(); ++it){
+        Collision* currentCollision = (*it);
+
+        CollisionManager_.deleteCollision(currentCollision);
+    }
+    
+
+
+    entities_[entity->ID] = nullptr;
+    entity->~Entity();
+    // entityObjects_[entity->ID].~Entity();
+    delete entity;
+
+    numEntities_ -= 1;
 }

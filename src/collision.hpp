@@ -1,5 +1,6 @@
 #pragma once
 
+#include "entity.fwd.hpp"
 #include "entity.hpp"
 
 class Collision

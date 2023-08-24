@@ -11,7 +11,7 @@ private:
     float timeForSwim = 500;
     float LilypadCounter = 0;
 public:
-    sf::CircleShape sprite;
+    sf::Sprite sprite;
 
     Frog(float x, float y, float size);
     ~Frog();
@@ -22,6 +22,9 @@ public:
     void swim(float direction, float force);
 
     bool beforeCollision(Entity* withEntity, int deltaTime);
+    void afterCollision(Entity* withEntity, int deltaTime);
 
     bool trySwim(float direction, float force);
+
+    bool isSittingOnLilypadsSafe();
 };

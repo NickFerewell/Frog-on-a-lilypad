@@ -16,7 +16,7 @@ Lilypad::Lilypad(float x, float y, float size)
 
     mass =  3.1415 * radius * radius * density;
 
-    opacity = 0.07f;
+    opacity = 0.06f; //0.07f
 
     currentCollisionCategory = Entity::Lilypads;
     collisionMask = Entity::All;
