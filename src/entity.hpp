@@ -16,6 +16,8 @@ class Entity
 public:
     entityID ID;
     World* world_;
+    bool toDelete = false;
+    bool isSensor = false;
 
     sf::Vector2f position;
     sf::Vector2f velocity;
@@ -37,7 +39,7 @@ public:
     CollisionSpecifier collisionMask = All;
 
     enum EntityState{
-        inWater, onLilypad, inAir
+        none, inWater, onLilypad, inAir
     };
 
     EntityState currentState;
@@ -57,6 +59,8 @@ public:
     virtual void resolveCollision(Entity* withEntity);
     virtual bool beforeCollision(Entity* withEntity, int deltaTime);
     virtual void afterCollision(Entity* withEntity, int deltaTime);
+
+    virtual void beforeDeletion();
 
     void applyForce(sf::Vector2f force);
 

@@ -85,3 +85,8 @@ bool Entity::doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory cate
     
     return (mask1 & category2) != Entity::None && (mask2 & category1) != Entity::None;
 }
+
+
+void Entity::beforeDeletion(){
+    
+}

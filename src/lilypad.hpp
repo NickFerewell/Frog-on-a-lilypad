@@ -8,6 +8,8 @@ public:
     sf::CircleShape sprite;
 
     Lilypad(float x, float y, float radius);
+    Lilypad(sf::Vector2f pos, float radius);
+    Lilypad(sf::Vector2i pos, float radius);
     ~Lilypad();
 
     void update(int deltaTime);
