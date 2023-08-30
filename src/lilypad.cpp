@@ -31,6 +31,14 @@ Lilypad::Lilypad(float x, float y, float size)
     sprite.setPosition(position);
 }
 
+Lilypad::Lilypad(sf::Vector2f pos, float radius){
+    Lilypad(pos.x, pos.y, radius);
+}
+
+Lilypad::Lilypad(sf::Vector2i pos, float radius){
+    Lilypad((float)pos.x, (float)pos.y, radius);
+}
+
 Lilypad::~Lilypad()
 {
 }
@@ -71,5 +79,5 @@ bool Lilypad::beforeCollision(Entity* withEntity, int deltaTime){
 
     // withEntity->position += acceleration * withEntity->mass * (deltaTime * deltaTime / 2.0f);
 
-    Entity::beforeCollision(withEntity, deltaTime);
+    return Entity::beforeCollision(withEntity, deltaTime);
 }
