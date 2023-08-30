@@ -13,10 +13,6 @@ private:
 public:
     sf::Sprite sprite;
 
-    enum FrogState{
-        none, swimming, preparingToJump, jumping
-    };
-
     Frog(float x, float y, float size);
     ~Frog();
 

@@ -5,8 +5,6 @@
 #include "collision.hpp"
 #include "world.hpp"
 
-#include "Lilypad.hpp"
-
 #include "math.h"
 #include <list>
 #include <SFML/Graphics.hpp>
@@ -72,13 +70,6 @@ void Frog::update(int deltaTime){
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
         trySwim(utils::toAngle(InputManager::instance().getMousePos() - position), mass * 0.01f);
     }
-    // trySwim(utils::toAngle(-position), mass * 0.01f);
-
-    // if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-    // {
-    //     world_->addEntity(new Lilypad(InputManager::instance().getMousePos().x, InputManager::instance().getMousePos().y, 5));
-    // }
-    
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
         velocity = sf::Vector2f(0, 0);
@@ -106,7 +97,7 @@ bool Frog::beforeCollision(Entity* withEntity, int deltaTime){
     switch (currentState)
     {
     case inWater:
-        if (withEntity->currentCollisionCategory == Entity::Lilypads && (sf::Mouse::isButtonPressed(sf::Mouse::Left) || isSittingOnLilypadsSafe())){
+        if (withEntity->currentCollisionCategory == Entity::Lilypads && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             currentState = Entity::onLilypad;
 
             collisionMask = collisionMask & ~Entity::Lilypads;
@@ -138,7 +129,7 @@ bool Frog::beforeCollision(Entity* withEntity, int deltaTime){
         break;
     }
 
-    return Entity::beforeCollision(withEntity, deltaTime);
+    Entity::beforeCollision(withEntity, deltaTime);
 }
 
 void Frog::afterCollision(Entity* withEntity, int deltaTime){
