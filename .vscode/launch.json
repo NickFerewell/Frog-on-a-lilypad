@@ -36,7 +36,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build program"
+            "preLaunchTask": "Debug program"
         }
     ],
     "version": "2.0.0"

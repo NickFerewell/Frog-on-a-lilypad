@@ -35,6 +35,15 @@
 		// 	"dependsOrder": "sequence"
 		// },
 		{
+			"label": "Debug program",
+            "command": "make",
+			"args": [
+				"buildMode=DEBUG",
+				"onlyBuild"
+			],
+            "detail": "mingw32-make компилирует, следуя командам в Makefile"
+		},
+		{
             "label": "Build program",
             "command": "make",
 			"args": [
