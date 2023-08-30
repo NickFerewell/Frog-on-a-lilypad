@@ -23,6 +23,33 @@ void Entity::update(int deltaTime){
     velocity += acceleration * float(deltaTime);
     position += velocity * float(deltaTime);
     acceleration *= 0.0f;
+
+    if (altitude > 0) {
+        zAcceleration -= gravityAcceleration;
+    }
+
+    bool l = prevAltitude - altitude > altitudeError;
+    //std::cout << l << " " << prevAltitude << " " << altitude << " " << altitudeError << std::endl;
+   
+    //if (zAcceleration < altitudeError) {
+    //    zAcceleration = 0;
+    //}
+
+    if (altitude < 0) {
+        altitude = 0;
+    }
+    /*if (prevAltitude - altitude > 0) {
+        onEndJump();
+    }
+    if (altitude - prevAltitude > 0) {
+        onBeginJump();
+    }*/
+    if (isAbleToFly == false) {
+        zVelocity += zAcceleration * float(deltaTime);
+        prevAltitude = altitude;
+        altitude += zVelocity * float(deltaTime);
+        zAcceleration *= 0.0f;
+    }
 }
 
 void Entity::postUpdate(int deltaTime){
@@ -78,8 +105,8 @@ bool Entity::beforeCollision(Entity* withEntity, int deltaTime){
 }
 void Entity::afterCollision(Entity* withEntity, int deltaTime){}
 
-bool Entity::doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory category1, CollisionSpecifier mask2, CollisionCategory category2){
-    std::cout << "Mask1: " << mask1 << ", Cat1: " << category1 << ", Mask2: " << mask2 << ", Cat2: " << category2 << std::endl;
+bool Entity::doCollisionEnabled(CollisionSpecifier mask1, CollisionSpecifier category1, CollisionSpecifier mask2, CollisionSpecifier category2){
+    //std::cout << "Mask1: " << mask1 << ", Cat1: " << category1 << ", Mask2: " << mask2 << ", Cat2: " << category2 << std::endl;
     // return (mask1 & category1) & (mask2 & category2) != Entity::None;
 
     
@@ -89,4 +116,24 @@ bool Entity::doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory cate
 
 void Entity::beforeDeletion(){
     
+}
+
+
+void Entity::applyForceUp(float force) {
+    zAcceleration += force / mass;
+}
+
+void Entity::onBeginJump() {
+    currentState = inAir;
+    currentCollisionCategory = currentCollisionCategory | Flies;
+    collisionMask = collisionMask &~Lilypads  | Flies;
+    drag = 0.1f;
+    //std::cout << "Start of jump? " << collisionMask << std::endl;
+}
+void Entity::onEndJump() {
+    currentState = inWater;
+    currentCollisionCategory = currentCollisionCategory & ~Flies;
+    collisionMask = collisionMask &~Flies |Lilypads;
+    drag = 0.9f;
+    //std::cout << "End of jump? " << collisionMask << std::endl;
 }

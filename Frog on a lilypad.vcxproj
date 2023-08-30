@@ -259,6 +259,7 @@ echo world</Command>
     <ClCompile Include="src\collision.cpp" />
     <ClCompile Include="src\collisionManager.cpp" />
     <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\eventManager.cpp" />
     <ClCompile Include="src\fly.cpp" />
     <ClCompile Include="src\frog.cpp" />
     <ClCompile Include="src\inputManager.cpp" />
@@ -416,6 +417,7 @@ echo world</Command>
     <ClInclude Include="src\constants.hpp" />
     <ClInclude Include="src\entity.fwd.hpp" />
     <ClInclude Include="src\entity.hpp" />
+    <ClInclude Include="src\eventManager.hpp" />
     <ClInclude Include="src\fly.hpp" />
     <ClInclude Include="src\frog.hpp" />
     <ClInclude Include="src\inputManager.hpp" />

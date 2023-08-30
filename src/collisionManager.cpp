@@ -60,7 +60,7 @@ void CollisionManager::addCollision(Collision* collisionNode){
     collisionNode->entity2->collisionList.push_front(collisionNode);
 
     entitiesToCollisionMap.insert_or_assign(std::pair<entityID, entityID>(collisionNode->entity1->ID, collisionNode->entity2->ID), collisionNode);
-    std::cout << "Map size: " << entitiesToCollisionMap.size() << std::endl;
+    //std::cout << "Map size: " << entitiesToCollisionMap.size() << std::endl;
 }
 void CollisionManager::removeFromStart(){
     if(collisionList != nullptr){
@@ -82,7 +82,7 @@ void CollisionManager::removeFromStart(){
         collisionCount -= 1;
     }
 
-    std::cout << "Map size: " << entitiesToCollisionMap.size() << std::endl;
+    //std::cout << "Map size: " << entitiesToCollisionMap.size() << std::endl;
 }
 
 void CollisionManager::clearCollisions(){
@@ -104,7 +104,7 @@ void CollisionManager::deleteCollision(Collision* collisionNode){
 
     collisionNode->entity1->collisionList.remove(collisionNode);
     collisionNode->entity2->collisionList.remove(collisionNode);
-    std::cout << collisionNode->entity1->collisionList.size() << " " << collisionNode->entity2->collisionList.size() << std::endl;
+    //std::cout << collisionNode->entity1->collisionList.size() << " " << collisionNode->entity2->collisionList.size() << std::endl;
 
     takeOut(collisionNode);
 }

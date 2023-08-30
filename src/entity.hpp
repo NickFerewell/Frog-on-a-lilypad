@@ -23,19 +23,28 @@ public:
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
 
+    float altitude = 0;
+    float prevAltitude = 0;
+    float zVelocity = 0;
+    float zAcceleration = 0;
+    float gravityAcceleration = 0.000001f;
+    float altitudeError = 0.000001f;
+    //То есть летает самостоятельно, как комар
+    bool isAbleToFly = false;
+
     float mass = 1;
     float radius = 1;
     float density = 1;
     float rotation = 0;
-    float altitude = 0;
     float drag = 0.9f;
     float opacity = 1.0f; //Nontransparency, opacity, overlappance
+    float renderLayer = 0;
 
     enum CollisionCategory : CollisionSpecifier{
         All = 0xFFFF, None = 0x0000, Frogs = 0x0001, Lilypads = 0x0002, Other = 0x0004, Flies = 0x0008
     };
 
-    CollisionCategory currentCollisionCategory = All;
+    CollisionSpecifier currentCollisionCategory = All;
     CollisionSpecifier collisionMask = All;
 
     enum EntityState{
@@ -64,5 +73,9 @@ public:
 
     void applyForce(sf::Vector2f force);
 
-    static bool doCollisionEnabled(CollisionSpecifier mask1, CollisionCategory category1, CollisionSpecifier mask2, CollisionCategory category2);
+    static bool doCollisionEnabled(CollisionSpecifier mask1, CollisionSpecifier category1, CollisionSpecifier mask2, CollisionSpecifier category2);
+
+    void applyForceUp(float force);
+    void onBeginJump();
+    void onEndJump();
 };

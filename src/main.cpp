@@ -8,15 +8,18 @@
 #include "entity.hpp"
 #include "lilypad.hpp"
 #include "inputManager.hpp"
+#include "fly.hpp"
 
 int main(){
-	std::cout << "Hello" << std::endl;
+	//std::cout << "Hello" << std::endl;
 
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	bool isFoolscreen = false;
+	bool isFullscreen = false;
 	sf::VideoMode videoMode(800, 800);
-	sf::RenderWindow window(videoMode, "Unlucky Frog", sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize |(sf::Style::Fullscreen * isFoolscreen), settings);
+	std::string windowName = std::string("Unlucky Frog(Phrog)");
+	int windowStyle = sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize | (sf::Style::Fullscreen * isFullscreen);
+	sf::RenderWindow window(videoMode, windowName, windowStyle, settings);
 
 	InputManager inputManager = InputManager::instance();
 	inputManager.gameWindow = &window;
@@ -43,7 +46,7 @@ int main(){
 			frameCount = 0;
 			std::cout << "FPS: " << FPS << std::endl;
 		}
-		if (deltaClock.getElapsedTime().asMilliseconds() <= 10) //Ограничение на количество кадров в секунду - < 100. Чтобы не нагружать GPU на максимум, а только на сколько надо.
+		if (deltaClock.getElapsedTime().asMilliseconds() <= 1000 / 100) //Ограничение на количество кадров в секунду - < 100. Чтобы не нагружать GPU на максимум, а только на сколько надо.
 		{
 			continue;
 		}
@@ -61,12 +64,40 @@ int main(){
 			if(event.type == sf::Event::Closed)
 				window.close();
 			else{
+				if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F11)
+				{
+					if (isFullscreen)
+					{
+						isFullscreen = false;
+						windowStyle = windowStyle & ~sf::Style::Fullscreen;
+					}
+					else {
+						isFullscreen = true;
+						windowStyle = windowStyle | sf::Style::Fullscreen;
+					}
+					//sf::VideoMode newVideoMode = sf::VideoMode(window.getSize().x, window.getSize().y);
+					//sf::VideoMode newVideoMode = sf::VideoMode(window.getDefaultView().getSize().x, window.getDefaultView().getSize().y);
+					window.create(videoMode, windowName, windowStyle, settings);
+				}
 				if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right)
 				{
-					world.addEntity(new Lilypad(100.0f, 100.0f, 90));
+				}
+				if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::L)
+				{
+					world.addEntity(new Lilypad(inputManager.getMousePos().x, inputManager.getMousePos().y, 90));
+				}
+				if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F)
+				{
+					world.addEntity(new Fly(inputManager.getMousePos().x, inputManager.getMousePos().y, 7));
 				}
 				
 				inputManager.handleEvent(event);
+			}
+
+			if (event.type == sf::Event::Resized) {
+				//window.create(sf::VideoMode(event.size.width, event.size.height), windowName, windowStyle, settings);
+				sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+				window.setView(sf::View(visibleArea));
 			}
 		}
 

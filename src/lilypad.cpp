@@ -47,7 +47,7 @@ void Lilypad::update(int deltaTime){
     Entity::update(deltaTime);
     // std::cout << "Lily" << std::endl;
 
-    applyForce(sf::Vector2f(-0.1f, 0));
+    //applyForce(sf::Vector2f(-0.1f, 0));
 }
 
 void Lilypad::draw(sf::RenderTarget& renderTarget){

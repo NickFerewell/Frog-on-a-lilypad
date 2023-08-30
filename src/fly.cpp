@@ -9,8 +9,12 @@ Fly::Fly(float x, float y, float size)
     density = 5.0f;
     mass =  3.1415 * radius * radius * density;
 
+    renderLayer = 2;
+
     currentCollisionCategory = Entity::Flies;
     collisionMask = Entity::Flies;
+    isAbleToFly = true;
+    altitude = 2;
 
     sf::CircleShape shape(size);
     shape.setFillColor(sf::Color(50, 50, 50));
